@@ -1,4 +1,5 @@
 from multiple_notes import *
+from check_deadline import *
 cmd_help = """/newzmt - создать новую заметку
 /chekzmt - просмотреть заметки
 /delzmt - удалить выбранную заметку
@@ -29,7 +30,8 @@ while arg == 1:
                 print(f"Текст заметки: {note_list[i]["content"]}")
                 print(f"Статус заметки: {note_list[i]["status"]}")
                 print(f"Дата создания заметки: {note_list[i]["created_date"]}")
-                print(f"Дедлайн заметки: {note_list[i]["issue_date"]}\n")
+                print(f"Дедлайн заметки: {note_list[i]["issue_date"]}")
+                chek_dl(note_list, i)
             time.sleep(3)
     if var_cmd == "/delzmt":
         del_note(note_list)
