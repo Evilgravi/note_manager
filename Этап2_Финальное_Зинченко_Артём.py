@@ -9,10 +9,12 @@ cmd_help = """/newzmt - создать новую заметку
 arg = 1
 while arg == 1:
     print(cmd_help)
+    # прверка вводов команд и вызов функций
     var_cmd = input("Введите команду: ")
     if var_cmd == "/newzmt":
-        add_parametr()
+        add_parametr() # функция из файла multiple_notes.py
     if var_cmd == "/chekzmt":
+        # отображение существующих заметок
         if len(note_list) == 0:
             print("Нет введённых заметок, возврат к панели управления.")
             time.sleep(3)
@@ -31,11 +33,11 @@ while arg == 1:
                 print(f"Статус заметки: {note_list[i]["status"]}")
                 print(f"Дата создания заметки: {note_list[i]["created_date"]}")
                 print(f"Дедлайн заметки: {note_list[i]["issue_date"]}")
-                chek_dl(note_list, i)
+                chek_dl(note_list, i)# функция расчёта дедлайна в файле check_deadline.py
             time.sleep(3)
     if var_cmd == "/delzmt":
-        del_note(note_list)
+        del_note(note_list) # функция удаления в файле delete_note.py
     if var_cmd == "/exit":
         arg = 0
     if var_cmd == "/swapstat":
-        swap_status(status_list,note_list)
+        swap_status(status_list,note_list) # функция смены статуса в файле update_status.py
